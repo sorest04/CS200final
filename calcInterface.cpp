@@ -258,7 +258,7 @@ void bsqrtcb(Fl_Widget *w, void *) {
   float fir=s.pop();
   float res=pow(fir,0.5);
   string fin = flt2str(res);
-  cout<<fin<<endl;
+  // cout<<fin<<endl;
   box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount=0;
@@ -294,7 +294,7 @@ void bpluscb(Fl_Widget *w, void *) {
   float sec=s.pop();
   float fir=s.pop();
   float res = fir + sec;
-  cout<<res<<endl;
+  // cout<<res<<endl;
   box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount = 0;
@@ -307,7 +307,7 @@ void bmincb(Fl_Widget *w, void *) {
   float sec=s.pop();
   float fir=s.pop();
   float res = fir-sec;
-  cout<<res<<endl;
+  // cout<<res<<endl;
   box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount = 0;
@@ -320,7 +320,7 @@ void bmulcb(Fl_Widget *w, void *) {
   float sec=s.pop();
   float fir=s.pop();
   float res=fir*sec;
-  cout<<res<<endl;
+  // cout<<res<<endl;
   box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount = 0;
@@ -333,7 +333,7 @@ void bdivcb(Fl_Widget *w, void *) {
   float sec=s.pop();
   float fir=s.pop();
   float res=fir/sec;
-  cout<<res<<endl;
+  //cout<<res<<endl;
   box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount=0;
