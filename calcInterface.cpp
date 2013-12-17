@@ -7,10 +7,18 @@
 #include <FL/Fl_Button.H>
 #include <FL/fl_ask.H>
 #include <string>
+#include <sstream>
 #include <math.h>
 #include "stack.h"
 
 using namespace std;
+
+string flt2str(float flt){
+  ostringstream ss;
+  ss<< flt;
+  string s(ss.str());
+  return s;
+  }
 
 Fl_Box *box;
 Fl_Box *sBox;
@@ -246,9 +254,12 @@ void bentrcb(Fl_Widget *w, void *) {
 }
 void bsqrtcb(Fl_Widget *w, void *) {
   bentrcb(box,0);
-  fir=s.pop();
-  res=pow(fir,0.5);
-  box->copy_label(to_string(res).c_str());
+  s.pop(); 
+  float fir=s.pop();
+  float res=pow(fir,0.5);
+  string fin = flt2str(res);
+  cout<<fin<<endl;
+  box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount=0;
   isFlt=false;
@@ -256,10 +267,12 @@ void bsqrtcb(Fl_Widget *w, void *) {
 }
 void bexpcb(Fl_Widget *w, void *) {
   bentrcb(box,0);
-  sec=s.pop();
-  fir=s.pop();
-  res=pow(fir,sec);
-  box->copy_label(to_string(res).c_str());
+  s.pop();
+  float sec=s.pop();
+  float fir=s.pop();
+  float res=pow(fir,sec);
+  cout<<res<<endl;
+  box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount=0;
   isFlt=false;
@@ -277,21 +290,25 @@ void brescb(Fl_Widget *w, void *) {
 }
 void bpluscb(Fl_Widget *w, void *) {
   bentrcb(box,0);
-  sec=s.pop();
-  fir=s.pop();
-  res = fir + sec;
-  box->copy_label(to_string(res).c_str());
+  s.pop();
+  float sec=s.pop();
+  float fir=s.pop();
+  float res = fir + sec;
+  cout<<res<<endl;
+  box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount = 0;
   isFlt = false;
   sBox->copy_label(s.getBack().c_str());
 }
 void bmincb(Fl_Widget *w, void *) {
-  bentrcb(box,0); 
-  sec=s.pop();
-  fir=s.pop();
-  res = fir-sec;
-  box->copy_label(to_string(res).c_str());
+  bentrcb(box,0);
+  s.pop();
+  float sec=s.pop();
+  float fir=s.pop();
+  float res = fir-sec;
+  cout<<res<<endl;
+  box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount = 0;
   isFlt = false;
@@ -299,10 +316,12 @@ void bmincb(Fl_Widget *w, void *) {
 }
 void bmulcb(Fl_Widget *w, void *) {
   bentrcb(box,0);
-  sec=s.pop();
-  fir=s.pop();
-  res=fir*sec;
-  box->copy_label(to_string(res).c_str());
+  s.pop();
+  float sec=s.pop();
+  float fir=s.pop();
+  float res=fir*sec;
+  cout<<res<<endl;
+  box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount = 0;
   isFlt = false;
@@ -310,10 +329,12 @@ void bmulcb(Fl_Widget *w, void *) {
 }
 void bdivcb(Fl_Widget *w, void *) {
   bentrcb(box,0);
-  sec=s.pop();
-  fir=s.pop();
-  res=fir/sec;
-  box->copy_label(to_string(res).c_str());
+  s.pop();
+  float sec=s.pop();
+  float fir=s.pop();
+  float res=fir/sec;
+  cout<<res<<endl;
+  box->copy_label(flt2str(res).c_str());
   s.push(res);
   decCount=0;
   isFlt=false;
@@ -322,7 +343,7 @@ void bdivcb(Fl_Widget *w, void *) {
 
 void bdpcb(Fl_Widget *w, void *) {
   s.pop();
-  box->copy_label(to_string(s.peak()).c_str());
+  box->copy_label(flt2str(s.peak()).c_str());
   sBox->copy_label(s.getBack().c_str());
 }
 void bpmcb(Fl_Widget *w, void *) {

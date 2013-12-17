@@ -2,6 +2,14 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
+
+std::string flt2strn(float flt){
+  std::ostringstream ss;
+  ss<< flt;
+  std::string s(ss.str());
+  return s;
+}
 
 Stack::Stack() {
 
@@ -39,7 +47,7 @@ string Stack::getBack() {
  
   string str ="";
   for(int x=len-1;x>=0;x--){
-    str+=to_string(back[x]);
+    str+=flt2strn(back[x]);
     str+="  |  ";
   }
 
